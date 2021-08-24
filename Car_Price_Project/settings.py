@@ -26,7 +26,7 @@ SECRET_KEY = 'ghk12&-6r1n&g=77k-5#(tzf8k0&ilz)ojypf982mp%_n@(e#6'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['carpricees.herokuapp.com']
 
 
 # Application definition
