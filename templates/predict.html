@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>INPUT CAR PREDICTION DETAILS</h1>
+    <form action="{%url 'result'%}">
+        {% csrf_token %}
+        <a>Select Car:</a>
+        <select name="car" id="car" onchange="ChangeCarList()" >
+            <option disabled="true" selected>-- Car --</option>
+            <option value="Lexus">Lexus</option>
+            <option value="Toyota">Toyota</option>
+            <option value="Mercedes-Benz">Mercedes-Benz</option>
+            <option value="Toyota Lexus">Toyota Lexus</option>
+            <option value="Acura">Acura</option>
+            <option value="Kia">Kia</option>
+            <option value="Audi">Audi</option>
+            <option value="Hyundai">Hyundai</option>
+            <option value="Pontiac">Pontiac</option>
+            <option value="Ford">Ford</option>
+            <option value="Honda">Honda</option>
+            <option value="Mazda">Mazda</option>
+            <option value="Nissan">Nissan</option>
+            <option value="Suzuki">Suzuki</option>
+            <option value="Chevrolet">Chevrolet</option>
+            <option value="Volkswagen">Volkswagen</option>
+            <option value="Landrover">Landrover</option>
+            <option value="Dodge">Dodge</option>
+            <option value="Mitsubishi">Mitsubishi</option>
+            <option value="Peugeot">Peugeot</option>
+            <option value="Infiniti">Infiniti</option>
+            <option value="Buick">Buick</option>
+            <option value="Volvo">Volvo</option>
+            <option value="Renault">Renault</option>
+            <option value="Jeep">Jeep</option>
+            <option value="Ssangyong">Ssangyong</option>
+            <option value="Skoda">Skoda</option>
+            <option value="Audi">Audi</option>
+            <option value="BMW">BMW</option>
+            <option value="Subaru">Subaru</option>
+            <option value="Lincoln">Lincoln</option>
+            <option value="Saturn">Saturn</option>
+            <option value="Opel">Opel</option>
+            <option value="Suzuki">Suzuki</option>
+            <option value="GAC">GAC</option>
+            <option value="Chrysler">Chrysler</option>
+            <option value="Brilliance">Brilliance</option>
+            <option value="GMC">GMC</option>
+            <option value="Innoson">Innoson</option>
+            <option value="MG">MG</option>
+            <option value="Dacia">Dacia</option>
+            <option value="Ashok">Ashok</option>
+            <option value="Jaguar">Jaguar</option>
+            <option value="Cadillac">Cadillac</option>
+            <option value="Mini Cooper">Saturn</option>
+            <option value="range rover">range rover</option>
+            <option value="Renault">Renault</option>
+            <option value="JMC">JMC</option>
+            <option value="Fiat">Fiat</option>
+            <option value="Seat">Seat</option>
+            <option value="Citroen">Citroen</option>
+            <option value="Bentley">Bentley</option>
+            <option value="Geely">Geely</option>
+            <option value="Rover">Rover</option>
+            <option value="Daihatsu">Daihatsu</option>
+            <option value="Hummer">Hummer</option>
+            <option value="Stallion">Stallion</option>
+            <option value="Pontiac">Pontiac</option>
+            <option value="Tata">Tata</option>
+            <option value="Isuzu">Isuzu</option>
+            <option value="Foton">Foton</option>
+            <option value="RANGE ROVER">RANGE ROVER</option>
+            <option value="Porsche">Porsche</option> 
+            <option value="Opel">Opel</option>
+            <option value="Mercury">Mercury</option>
+            <option value="Ashok">Ashok</option>
+
+
+
+
+        </select>
+
+        <br>
+        <a>Select Car Model:</a>
+        <select name="carmodel" id="carmodel"></select>
+        
+        <script>
+            var carsAndModels = {};
+            carsAndModels['Lexus'] = ['GX 470', 'ES 350', 'ES330', 'LS460', 'ES 330', 'Is 250', 'Is 350', 'Es 300', 'RX 350', 'RX 330', 'Rx 300', 'Rx 330', 'LX 570', 'Gx 460', 'Gx 470', 'GS 430', 'GS 350', 'Gs 330', 'Lx', 'Es', 'Lx 570', 'Es 350', 'Lx 470', 'Gx460', 'Rx 330', 'Rx 350', 'Es 330', 'IS 200T', 'CT 200h', 'Ls', 'Gx470', 'Gs 300', 'Gx', 'Rx', 'Gs', 'Is250', 'NX'];
+            carsAndModels['Mazda'] = ['323', 'Premacy', 'Tribute', 'Cx-9', 'Cx-7', 'PRIMACY', 'MX-5 Miata', '6', '5', '3', 'Mpv'];
+            carsAndModels['BMW'] = ['M6', '7 Series', '6 Series', '5 Series', '3 Series', '1 Series', '626', 'X1', 'X3', 'X5', 'X6', 'Z3', '325I', '320i', '330XI'];
+            carsAndModels['Nissan'] = ['Xterra', 'Sentra', 'Versa', 'X-Trail', 'Primera', 'Teana', 'Altima', 'Murano', 'Titan', 'Qashqai', 'Maxima', 'Frontier', 'Rogue', 'Pathfinder', 'Urvan', 'Almera', 'Vanette', 'INFINITY', 'Kicks', 'Cefiro', 'Civilian', 'Sunny', 'SENTRA', 'Quest', 'Patrol', 'Armada'];
+            carsAndModels['Mercedes-Benz'] = ['C 350', 'C200', 'A180', 'B180', 'E320', 'E240', 'GL 450', 'GLC 300', 'E550', 'E350', 'Vito', 'CLA250', 'C320', 'S500', 'S550', 'S350', 'GLE350', 'G500', 'E230', 'E280', 'E350', 'E500', 'E200', 'CLS 350', 'C180', 'C230', 'C 240', 'C280', 'GLE', 'C200 KOMPRESSOR', 'C250', 'C240', 'C350', 'R350', 'Gl550', 'E300', 'C 300', 'GLK 350', 'C 230', 'ML 350', 'GL450', 'R500', 'G550', 'Cl500', 'Gl420', 'Glk350', 'C220 Cdi', 'C-CLASS', 'M-CLASS', 'a170', 'Sprinter', 'Ml63 Amg', 'E43', 'Ml550', 'C 240', 'G Class', 'E 200', 'A140', 'Clk500', 'A160', 'Glk250', 'ML 350', 'Ml320', 'Gl350', 'Gl450', 'C63 Amg', 'Clk200', 'Gl500', 'Ml350', 'Slk350', 'E430', 'S600', 'C43', 'GL-CLASS'];
+            carsAndModels['Toyota'] = ['Sienna', 'Fortuner', 'Avanza', 'Prius', 'Land Cruiser', 'Auris', 'Matrix', 'Fj Cruiser', 'Hilux', 'Tundra', 'Avalon', 'Celica', '4Runner', 'Solara', 'Avensis', 'Sequoia', 'Yaris', 'HiAce', 'Landcruiser Prado', 'Prado', 'Corolla', 'Venza', 'Camry', 'CAMRY (HYBRID)', 'RAV4', 'Corolla verso', 'Corona', 'Highlander', 'Tacoma', 'Picnic', 'BUS', 'ipsum', 'HARRIER', 'VERSO', 'Echo', 'Land Cruiser Prado'];
+            carsAndModels['Toyota Lexus'] = ['RX 450h'];
+            carsAndModels['Ford'] = ['Mustang', 'E-Series', 'Freestyle', 'Taurus', 'Transit', 'E150', 'Expedition', 'Ranger', 'Ecosport', 'Focus', 'Explorer', 'Escape', 'Edge', 'X5', 'Windstar', 'F-150', 'Mondeo', 'Everest', 'Flex', 'SMAX', 'Fusion', 'Econoline', 'E-350'];
+            carsAndModels['Honda'] = ['Accord', 'CRV', 'Accord Crosstour', 'Fit', 'Jazz', 'Ridgeline', 'City', 'Odyssey', 'Pilot', 'Cr-V', 'Civic', 'XC60', 'XC90'];
+            carsAndModels['Kia'] = ['Forte', 'Amanti', 'Cerato', 'Cadenza', 'Sedona', 'Carens', 'Soul', 'Sorento', 'Mohave', 'Sportage', 'K', 'Quoris', 'JOICE', 'Rio', 'Optima', 'Carnival'];
+            carsAndModels['Acura'] = ['Tlx', 'Tl', 'Rl', 'Rdx', 'Zdx', 'Mdx', 'mdx'];
+            carsAndModels['Volvo'] = ['V40', 'Xc70', 'Xc90', 'S80', 'S60', 'S40', 'XC 60', 'V60', 'V70'];
+            carsAndModels['Volkswagen'] = ['Touareg', 'Beetle', 'Amarok', 'LT 35', 'CC', 'Jetta', 'Passat', 'Tiguan', 'Golf', 'TRANSP SHUTTLE', 'Touran', 'Sharan', 'Polo', 'Rabbit'];
+            carsAndModels['Chevrolet'] = ['Avalanche', 'Optra', 'Venture', 'Malibu', 'Camaro', 'Epica', 'Equinox', 'Trax', 'Cruze', 'Aveo', 'Express Cargo', 'REZZO', 'Tracker', 'Uplander', 'NUBIRA', 'Trailblazer', 'Traverse'];
+            carsAndModels['Dodge'] = ['Avenger', 'Caliber','Caravan', 'Challenger', 'Charger', 'Durango', 'Journey', 'Ram Promaster', 'Ram'];
+            carsAndModels['Mitsubishi'] = ['Outlander', 'Space Wagon', 'Montero', 'Pajero', 'L200', 'L300', 'L400', 'Attrage', 'Galant', 'Lancer', 'Space gear', 'SpaceStar', 'Endeavor'];
+            carsAndModels['Peugeot'] = ['807', '607', '508', '406', '407', '408', '307', '306', '304', '301', 'Expert', '207', 'BOXER'];
+            carsAndModels['Infiniti'] = ['Fx', 'Qx', 'FX35', 'Qx56', 'G35', 'G35X', 'QX4', 'M', 'G', 'G37'];
+            carsAndModels['Buick'] = ['Lacrosse', 'Enclave'];
+            carsAndModels['Renault'] = ['Duster', 'Scenic', 'Laguna', 'Megane', 'ESPACE', 'Escape'];
+            carsAndModels['Jeep'] = ['Compass', 'Grand Cherokee', 'Commander', 'Cherokee', 'Liberty', 'Wrangler'];
+            carsAndModels['Ssangyong'] = ['Rexton', 'actyon', 'Actyon'];
+            carsAndModels['Skoda'] = ['Octavia', 'Superb', 'Fabia'];
+            carsAndModels['Audi'] = ['A6', 'A5', 'A4', 'Q7', 'Q5', 'Tt'];
+            carsAndModels['BMW'] = ['3 Series'];
+            carsAndModels['Subaru'] = ['Outback', 'Impreza', 'Forester', 'Legacy'];
+            carsAndModels['Lincoln'] = ['Mkx', 'Navigator', 'Town Car', 'Mks', 'Mkv'];
+            carsAndModels['Saturn'] = ['VUE', 'AURA', 'Outlook'];
+            carsAndModels['Opel'] = ['Tigra', 'Zafira', 'Astra', 'FRONTERA', 'Signum'];
+            carsAndModels['Suzuki'] = ['Every Wagon', 'Sx4', 'Forenza', 'Swift', 'XL7', 'Kizashi', 'XL-7', 'Vitara', 'Grand Vitara'];
+            carsAndModels['GAC'] = ['GS4', 'GA3-S', 'GS5', 'GA 4'];
+            carsAndModels['Chrysler'] = ['Voyager', '200', 'Pacifica', 'Pt Cruiser', 'Town & Country', 'Sebring', '300'];
+            carsAndModels['Brilliance'] = ['Splendor'];
+            carsAndModels['GMC'] = ['Savana', 'Sierra', 'Acadia'];
+            carsAndModels['Innoson'] = ['IVM G80', 'IVMG5'];
+            carsAndModels['MG'] = ['350s'];
+            carsAndModels['Dacia'] = ['406'];
+            carsAndModels['Ashok'] = ['Leyland'];
+            carsAndModels['Jaguar'] = ['X-Type', 'XE', 'Xj', 'S-Type', 'Xk'];
+            carsAndModels['Cadillac'] = ['Srx', 'Escalade', 'Cts'];
+            carsAndModels['range rover'] = ['HSE'];
+            carsAndModels['RANGE ROVER'] = ['VELAR'];
+            carsAndModels['Renault'] = ['Escape'];
+            carsAndModels['JMC'] = ['NEW CARRYING LIGHT DUTY TRUCK'];
+            carsAndModels['Fiat'] = ['ducato', 'FULLBACK'];
+            carsAndModels['Seat'] = ['Cordoba'];
+            carsAndModels['Citroen'] = ['BERLINGO'];
+            carsAndModels['Landrover'] = ['HSE SPORTS']; Lr4
+            carsAndModels['Land Rover'] = ['Lr4', 'Lr3', 'Lr2', 'Range Rover Vogue', 'Freelander', 'Discovery']; 
+            carsAndModels['Bentley'] = ['Continental'];
+            carsAndModels['Geely'] = ['CK'];
+            carsAndModels['Rover'] = ['600'];
+            carsAndModels['Daihatsu'] = ['MOVE'];
+            carsAndModels['Hummer'] = ['H3'];
+            carsAndModels['Stallion'] = ['Force'];
+            carsAndModels['Pontiac'] = ['SALOON', 'Montana', 'Vibe'];
+            carsAndModels['Tata'] = ['407'];
+            carsAndModels['Isuzu'] = ['Rodeo']; 
+            carsAndModels['Foton'] = ['VIEW CS2'];
+            carsAndModels['Porsche'] = ['Boxster', 'Cayenne'];
+            carsAndModels['Hyundai'] = ['Trajet', 'Azera', 'Genesis', 'Veloster', 'Tiburon', 'Tucson', 'I10', 'H1', 'Ix35', 'Santamo', 'Accent', 'Creta', 'Elantra', 'Santa Fe', 'Veracruz', 'Sonata', 'Entourage'];
+            carsAndModels['Mercury'] = ['Villager'];
+            carsAndModels['Ashok'] = ['Leyland'];
+
+            function ChangeCarList() {
+                var carList = document.getElementById("car");
+                var modelList = document.getElementById("carmodel");
+                var selCar = carList.options[carList.selectedIndex].value;
+                while (modelList.options.length) {
+                    modelList.remove(0);
+                }
+                var cars = carsAndModels[selCar];
+                if (cars) {
+                    var i;
+                    for (i = 0; i < cars.length; i++) {
+                        var car = new Option(cars[i], cars[i]);
+                        modelList.options.add(car);
+                    }
+                }
+            }
+        </script>
+        <br>
+        <a>Input Mileage in miles:</a>
+        <input type="range" name="mileage" id="mileage" min="0" max="350000" value="50" class="slider"onchange="updateTextInput(this.value);">
+        <input type="text" id="textInput" value="">
+        <script>
+        function updateTextInput(val) {
+        document.getElementById('textInput').value=val;
+        }</script>
+    
+        <br>
+        <a>Select Car Condition:</a>
+        <select name="condition" id="">
+            <option disabled="true" selected>-- Condition --</option>
+            <option value="Foreign Used">Foreign Used</option>
+            <option value="Nigerian Used">Nigerian Used</option>
+            <option value="New">New</option>
+        </select>
+        <br>
+        <a>Select Year:</a>
+        <select name="year" id="year">
+            <option disabled="true" selected>-- Year --</option>
+            <option value="2020">2020</option>
+            <option value="2019">2019</option>
+            <option value="2018">2018</option>
+            <option value="2017">2017</option>
+            <option value="2016">2016</option>
+            <option value="2015">2015</option>
+            <option value="2014">2014</option>
+            <option value="2013">2013</option>
+            <option value="2012">2012</option>
+            <option value="2011">2011</option>
+            <option value="2010">2010</option>
+            <option value="2009">2009</option>
+            <option value="2008">2008</option>
+            <option value="2007">2007</option>
+            <option value="2006">2006</option>
+            <option value="2005">2005</option>
+            <option value="2004">2004</option>
+            <option value="2003">2003</option>
+            <option value="2002">2002</option>
+            <option value="2001">2001</option>
+            <option value="2000">2000</option>
+        </select>
+        <br>
+
+
+
+
+        <input type="submit" value="Get Prediction"> 
+    </form>
+
+<button onClick="window.location.reload();">Refresh Page</button>
+</body>
+
+</html>
