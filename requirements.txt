@@ -1,3 +1,2 @@
-dj_database_url==0.5.0
 Django==3.2.6
 numpy==1.21.2
