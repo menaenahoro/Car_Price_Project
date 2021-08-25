@@ -19,7 +19,7 @@ def result(request):
     price_a = round(price_a)
     price_b = result3-Average_error
     price_b = round(price_b)
-    price_a = format(price_b,',d')
+    price_a = format(price_a,',d')
     price_b = format(price_b, ',d')
     return render(request, 'result.html', {'Name': results, 'Carmodule': result2, 'Caryear': yearA, 'Dump': price_a, 'Ramp': price_b})
 
