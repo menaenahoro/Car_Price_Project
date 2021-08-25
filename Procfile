@@ -1,1 +1,1 @@
-web: gunicorn Car_Price_Project.wsgi
+web: gunicorn Car_Price_Project.wsgi --log file -
